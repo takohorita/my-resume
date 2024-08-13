@@ -21,13 +21,6 @@ jobs:
           node-version: 18
           cache: npm
       - run: npm install
-      # - name: Install Chrome for Puppeteer
-      #   run: npx puppeteer install
-      - name: Set Puppeteer Cache Path and Install Chrome
-        run: |
-        mkdir -p /home/runner/.cache/puppeteer
-        export PUPPETEER_CACHE_DIR=/home/runner/.cache/puppeteer
-        npx puppeteer install
       - run: npm run build:pdf
       - name: Create a draft release
         uses: softprops/action-gh-release@v1
